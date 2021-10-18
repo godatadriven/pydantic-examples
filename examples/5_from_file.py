@@ -1,4 +1,3 @@
-# TODO(Rens)
 from __future__ import annotations
 
 import datetime
@@ -15,6 +14,8 @@ from rich.traceback import install
 install(show_locals=False)
 
 # Usecase: load settings from a yaml file.
+
+# init
 class DayOff(BaseModel):
     date: datetime.date
     reason: Optional[str] = None
@@ -40,7 +41,7 @@ class MyParams(BaseModel):
         return cls.parse_obj(params_dict)
 
 
-#%% try
+#%% setup
 inputs = {
     "name": "Rens Dimmendaal",
     "days_off": [
@@ -50,8 +51,7 @@ inputs = {
     ],
 }
 
-# %%
-
+#%% run
 with tempfile.TemporaryDirectory("w") as td:
     # save yaml to file
     fpath = Path(td) / "my_params.yaml"

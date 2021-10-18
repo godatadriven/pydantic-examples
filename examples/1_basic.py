@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from rich import print
 from rich.traceback import install
 
-install(show_locals=True)
+install(show_locals=False)
 
 # Pydantic is useful to get data from external sources, such as API's.
 # It can do data validation and can enforce type hints.

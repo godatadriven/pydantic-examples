@@ -5,7 +5,7 @@ from pydantic.fields import Field
 from rich import print
 from rich.traceback import install
 
-# install(show_locals=False)  # pretty print errors
+install(show_locals=False)  # pretty print errors
 
 #%% You're communicating with some API that uses camelCase, but you want to use snake_case.
 class User(BaseModel):
@@ -15,8 +15,7 @@ class User(BaseModel):
 
 external_data = {"firstName": "Jan", "lastName": "Klaasse"}
 
-# This fails
-user = User(**external_data)
+user = User(**external_data)  # <-- this fails!
 
 #%% We can fix that with field aliases
 class User(BaseModel):
@@ -28,7 +27,7 @@ user = User(**external_data)
 print(f"{user=}")
 
 #%% Now we have a new problem. Now this won't work:
-user = User(first_name="Jan", last_name="Klaasse")
+user = User(first_name="Jan", last_name="Klaasse")  # <-- This fails!
 
 # %%Why? You cannot assign by field_name by default. We can fix this though.
 class User(BaseModel):

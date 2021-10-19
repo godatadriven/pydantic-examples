@@ -11,6 +11,9 @@ rich = "^10.12.0"
 ipykernel = "^6.4.1"
 PyYAML = "^6.0"
 datamodel-code-generator = "^0.11.14"
+fastapi = "^0.70.0"
+uvicorn = "^0.15.0"
+python-dotenv = "^0.19.1"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.9b0", allow-prereleases = true}

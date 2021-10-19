@@ -1,4 +1,5 @@
-# From: https://stackoverflow.com/questions/66548586/how-to-change-date-format-in-pydantic
+# %%
+# Based on: https://stackoverflow.com/questions/66548586/how-to-change-date-format-in-pydantic
 
 from datetime import datetime, timezone
 from pydantic import BaseModel, validator
@@ -26,11 +27,14 @@ class DateTimeClass(BaseModel):
             datetime: convert_datetime_to_iso_8601_with_z_suffix
         }
 
-
-special_datetime = DateTimeClass(datetime_start="2042-3-15T12:45+01:00")  # note the different timezone
+# %%
+datetime_item = DateTimeClass(datetime_start="2042-3-15T12:45+01:00")  # note the different timezone
 
 # input conversion
-print(special_datetime.datetime_start)  # 2042-03-15 11:45:00+00:00
+print(datetime_item.datetime_start)  # 2042-03-15 11:45:00+00:00
 
+# %%
 # output conversion
-print(special_datetime.json())  # {"datetime_start": "2042-03-15T11:45:00Z"}
+print(datetime_item.json())  # {"datetime_start": "2042-03-15T11:45:00Z"}
+
+# %%
